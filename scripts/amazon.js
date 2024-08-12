@@ -3,6 +3,8 @@ import {cart} from '../data/cart.js';
 //modules avoid naming conflicts by using 'as' then the name
 //order of the scripts loaded does not matter. order does not matter
 
+import {products} from '../data/products.js';
+
 let productsHTML = '';
 
 
