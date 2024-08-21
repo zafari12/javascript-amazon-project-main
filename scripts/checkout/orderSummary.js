@@ -74,8 +74,7 @@ const deliveryOption = getDeliveryOption(deliveryOptionId);
       `; 
   });
 
-  console.log(cartSummaryHTML);
-
+  
 function deliveryOptionsHTML(matchingProduct, cartItem) {
       let html = '';
 
