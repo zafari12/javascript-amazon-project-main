@@ -17,6 +17,7 @@ export function loadFromStorage () {
      }];
    }
 }
+console.log(cart);
 
 export function addToCart (productId) {
     let matchingItem;
@@ -73,3 +74,4 @@ export function updateDeliveryOption (productId, deliveryOptionId){
 
    saveToStorage();
 }
+

@@ -83,9 +83,7 @@ function deliveryOptionsHTML(matchingProduct, cartItem) {
       deliveryOptions.forEach((deliveryOption) => {
         const today = dayjs();
         const deliveryDate = today.add(
-          deliveryOption.deliveryDays, 'days'
-
-  );
+          deliveryOption.deliveryDays, 'days');
 
   const dateString = deliveryDate.format(
           'dddd, MMMM D'
