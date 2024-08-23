@@ -4,20 +4,20 @@ class Cart {
 
   cartItems;
   //cartItems =  undefined;
-  localStorageKey;
+  #localStorageKey;
 
   constructor(localStorageKey) {
 
-   this.localStorageKey = localStorageKey; 
+   this.#localStorageKey = localStorageKey; 
    //businessCart.localStorageKey = 'Cart-business'; 
 
-   this.loadFromStorage();
+   this.#loadFromStorage();
    //businessCart.loadFromStorage();
 
   }
   
-  loadFromStorage() {
-   this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey));
+#loadFromStorage() {
+   this.cartItems = JSON.parse(localStorage.getItem(this.#localStorageKey));
  
     if (!this.cartItems) {
        this.cartItems = [{
@@ -33,7 +33,7 @@ class Cart {
  }
 
  saveToStorage(){
-   localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems));
+   localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
  }
 
  addToCart (productId) {
@@ -94,7 +94,8 @@ updateDeliveryOption (productId, deliveryOptionId){
 const cart = new Cart('cart-oop');
 const businessCart = new Cart('cart-business');
 
-
+//cart.localStorageKey = 'aaa';
+//not supposed to do it. 
 
  console.log(cart);
  console.log(businessCart);
@@ -105,3 +106,8 @@ const businessCart = new Cart('cart-business');
  //class helps us to generate these objects. easier to create these objects. 
  //benefits: cleaner than a function. 
  //extra features: consturactor, after we create object, we run setup code. constructor (){} works like a normal method. run automatically to put the setup code. 
+ /* 
+ private properties: cannot be used outside of the class
+ only accessed inside a class. 
+ private methods. which properties or methods to use outside of the class. 
+ */
