@@ -1,4 +1,3 @@
-
 import {formatCurrency} from '../scripts/utils/money.js';
 
 export function getProduct(productId) {
@@ -63,6 +62,53 @@ extraInfoHTML() {
     `;
    }
 }
+
+/*
+const date = new Date();
+console.log(date);
+console.log(date.toLocaleTimeString());
+*/
+
+/*console.log(this);
+//undefined
+const object2 = {
+  a: 2,
+  //undefined (this)
+  b:this.a
+};
+*/
+/*
+function logThis() {
+  //we are not inside any object
+  console.log(this);
+}
+
+logThis();
+logThis.call('hello');
+
+/*
+const object3 = {
+method() {
+console.log(this);
+this this will point to object3
+[1,2,3].forEach(()=> {
+and this one too. arrow function does not change the value of this.
+  console.log(this);
+  });
+}
+};
+*/
+
+this //undefined
+const object3 = {
+  //arrow functions does not change the value of this and it will be unefined. 
+  method: ()=>{
+    console.log(this);
+  }
+};
+
+object3.method();
+*/
 
 export const products = [
   {
@@ -738,4 +784,10 @@ then creates new Product(product1).
 product2, 
 into a class. 
 ]
+*/
+
+/*
+inside a method, "this" points to the outer object
+inside a function, this = undefined
+arrow functions do not change the value of "this"
 */
