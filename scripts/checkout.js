@@ -6,16 +6,31 @@ import {loadCart} from '../data/cart.js';
 //import '../data/backend-practice.js';
 
 //this function returns a promise
-async function loadPage() {
+//we can use try{} catch {} with synchornous code too without using
+//async await
+//outside control and code is correct and that is when we use try catch
+//throw creates a new error. manually create an error
 
-  await loadProductsFetch();
+async function loadPage() {
+  try {
+    //throw 'error1';
+    //goes directly to catch and ignore the rest.
+
+    await loadProductsFetch();
  
-  const value = await new Promise((resolve)=> {
-    loadCart(()=> {
-      resolve('value3');
+    const value = await new Promise((resolve, reject)=> {
+      //throw 'error2';
+      loadCart(()=> {
+        //throw does not work in future. so we cannot have it here. 
+        //reject('error3');
+        resolve('value3');
+      });
     });
-  })
- 
+
+  } catch (error){
+    console.log('unexpected error. please try again later.');
+  }
+
   renderOrderSummary();
   renderPaymentSummary();
 

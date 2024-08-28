@@ -130,17 +130,20 @@ const promise = fetch(
 
     console.log('load products');
     
-  });
+  }).catch((error)=> {
+    console.log('unexpected error. try again later.');
+  }); 
 
   return promise;
 }
+
 
 /*
 loadProductsFetch().then(()=> {
   console.log('next step');
 });
 
-
+*/
 
 export function loadProducts (fun) {
 
@@ -162,12 +165,18 @@ export function loadProducts (fun) {
   fun();
   
  });
+ //run the function if we get an error
+ xhr.addEventListener('error', (error)=> {
+   console.log('unexpected error');
+ });
 
   xhr.open('GET', 'https://supersimplebackend.dev/products');
   xhr.send();
 }
 
-*/
+
+
+
 /*
 export const products = [
   {
